@@ -2,9 +2,9 @@ package io.kafbat.ui.container;
 
 import java.time.Duration;
 import org.testcontainers.containers.GenericContainer;
-import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.containers.Network;
 import org.testcontainers.containers.wait.strategy.Wait;
+import org.testcontainers.kafka.KafkaContainer;
 
 public class KafkaConnectContainer extends GenericContainer<KafkaConnectContainer> {
   private static final int CONNECT_PORT = 8083;

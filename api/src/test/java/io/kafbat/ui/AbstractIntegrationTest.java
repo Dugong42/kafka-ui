@@ -22,8 +22,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.util.TestSocketUtils;
-import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.containers.Network;
+import org.testcontainers.kafka.KafkaContainer;
 import org.testcontainers.utility.DockerImageName;
 
 
@@ -39,9 +39,12 @@ public abstract class AbstractIntegrationTest {
       System.getProperty("os.arch").contains("arm") || System.getProperty("os.arch").contains("aarch64");
 
   private static final String CONFLUENT_PLATFORM_VERSION = IS_ARM ? "7.7.1.arm64" : "7.7.1";
+  private static final String APACHE_KAFKA_VERSION = "3.8.1";
 
   public static final KafkaContainer kafka = new KafkaContainer(
-      DockerImageName.parse("confluentinc/cp-kafka").withTag(CONFLUENT_PLATFORM_VERSION))
+      DockerImageName.parse("apache/kafka-native")
+          .withTag(APACHE_KAFKA_VERSION)
+          .asCompatibleSubstituteFor("apache/kafka"))
       .withNetwork(Network.SHARED);
 
   public static final SchemaRegistryContainer schemaRegistry =

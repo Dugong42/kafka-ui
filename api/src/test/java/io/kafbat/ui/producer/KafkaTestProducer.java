@@ -7,7 +7,7 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.testcontainers.containers.KafkaContainer;
+import org.testcontainers.kafka.KafkaContainer;
 
 public class KafkaTestProducer<KeyT, ValueT> implements AutoCloseable {
   private final KafkaProducer<KeyT, ValueT> producer;

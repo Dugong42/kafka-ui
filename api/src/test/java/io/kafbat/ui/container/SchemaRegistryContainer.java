@@ -3,8 +3,8 @@ package io.kafbat.ui.container;
 import io.confluent.kafka.schemaregistry.client.CachedSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;
 import org.testcontainers.containers.GenericContainer;
-import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.containers.Network;
+import org.testcontainers.kafka.KafkaContainer;
 
 public class SchemaRegistryContainer extends GenericContainer<SchemaRegistryContainer> {
   private static final int SCHEMA_PORT = 8081;
